@@ -55,6 +55,22 @@ OPENAI_API_KEY="your_openai_key"
 
 ## 3. Launch the dashboard:
 
+✅ **Windows**
+
+```bat
+scripts\run.bat
+```
+
+✅ **Mac/Linux**
+
+```bash
+./scripts/run.sh
+```
+
+✅ **Alternatively (All platforms)**
+
+If you prefer not to use the scripts, you can run the app manually:
+
 ```python
 uvicorn src.ui.main:app --reload 
 ```
