@@ -95,7 +95,7 @@ Upload a bill image and click on  **"Parse Bill Image"** .
 
 ### 📹 Demo Video
 
-[DEMO VIDEO LINK](image\README\Demo Document Parser.mp4)
+[DEMO VIDEO LINK](https://drive.google.com/file/d/1KzLyvTPTJz_LV_NhydUYsQs0alBHJPTb/view?usp=drive_link)
 
 ## 👨‍💻About Me
 
