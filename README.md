@@ -5,7 +5,7 @@
 This project uses **Generative AI (GenAI)** to extract structured data from  **images of purchase bills** , helping e-commerce analytics organizations generate actionable insights.
 
 ```markdown
-✅ Parses unstructured bill images into structured formats (e.g., JSON)
+✅ Parses unstructured bill images into structured formats (e.g: JSON)
 ✅ Uses state-of-the-art GenAI models (OpenAI or open-source)
 ✅ Provides an interactive dashboard for uploading and processing bills
 ```
