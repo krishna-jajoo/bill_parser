@@ -66,20 +66,43 @@ def get_field_value_extraction_prompt(base64_image, fields):
         {
             "role": "system",
             "content": (
-                "You are a highly accurate information extractor.\n"
-                "Given an image of a bill or invoice and a list of field names, extract the exact values for each field.\n"
-                "Return the result in clean JSON format.\n"
-                "Use only the information present in the image. Do not infer or hallucinate values.\n\n"
-                "If the fields include line-item or table-related data (such as Description, Quantity, Unit Price, Tax, etc.),"
-                " organize that information into an Item List array. Each item in this array should be a dictionary,"
-                " where the keys correspond to the column names of the table.\n"
+                '''You are a highly accurate information extractor.
+                Provided with an image of a bill or invoice and and a list of field names, 
+                Your task is to carefully analyze the image and extract the values for each field.In proper structure
+                Return the result in clean JSON format.
+                # Guidelines for Extraction
+                - Use only the information present in the image. Do not infer or hallucinate values.
+                - If the fields include line-item or table-related data (such as Description, Quantity, Unit Price, Tax, etc.),
+                organize that information into an Item List array. Each item in this array should be a dictionary, 
+                with values corresponding to the columns of the table/
                 "⚠️ If an item includes secondary charges (like 'Shipping Charges') directly beneath it,\n"
-                "group those charges inside the same item dictionary — do not treat them as separate standalone items.\n\n"
+                "group those charges inside the same item dictionary — do not treat them as separate standalone items.\n\n'''
                 f"## Input Fields:\n```json\n{fields}\n```\n\n"
-                "## Output Instructions:\n"
-                "- Return a JSON object with keys matching the requested fields.\n"
-                "- If any of the fields relate to a table, include them inside an `Item List`.\n"
-                "- Be precise. Use only the content visible in the image.\n\n"
+                '''## Output Instructions:
+                - Return a JSON object with keys matching the requested fields.
+                - If any of the fields relate to a table, include them inside an `Item List`.
+                - Be precise. Use only the content visible in the image.
+
+                **Output Structure**:
+                ```json
+                {{
+                    "field_name1": "value1",
+                    "field_name2": "value2",
+                    "field_name3": "value3",
+                    "Item List": [
+                        {{
+                            "item_field_1": "item_value_1",
+                            "item_field_2": "item_value_2",
+                            "item_field_3": "item_value_3",
+                            "item_field_4": [
+                                {{
+                                    "item_subfield_1": "item_subvalue_1",
+                                    "item_subfield_2": "item_subvalue_2",
+                                }},
+                    ...
+                }}
+                ```
+                '''
                 "## Example Output:\n"
                 "```json\n"
                 f"{example_json}\n"
@@ -95,7 +118,7 @@ def get_field_value_extraction_prompt(base64_image, fields):
                 },
                 {
                     "type": "text",
-                    "text": f"Extract values for the following fields:\n```json\n{fields}\n```",
+                    "text": f"Extract values for the following fields in structured JSON:\n```json\n{fields}\n```",
                 },
             ],
         },
