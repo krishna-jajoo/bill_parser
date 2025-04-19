@@ -1,9 +1,10 @@
 import os
 import uvicorn
 from fastapi import FastAPI, UploadFile, File, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+
 # from tempfile import NamedTemporaryFile
 from src.parser_processing.parser import extract_fields_from_bill
 from src.utils import encode_image
@@ -25,6 +26,11 @@ def dashboard(request: Request):
     return templates.TemplateResponse(
         "dashboard.html", {"request": request, "result": None}
     )
+
+
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse(os.path.join(BASE_DIR, "static", "favicon.ico"))
 
 
 @app.post("/upload/", response_class=HTMLResponse)
