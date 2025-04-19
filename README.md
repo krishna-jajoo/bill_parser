@@ -77,13 +77,13 @@ uvicorn src.ui.main:app --reload
 
 ## 4. Access the Dashboard
 
-### Step 1: 
+### Step 1:
 
 Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
 ![1745058552991](image/README/1745058552991.png)
 
-### Step 2: 
+### Step 2:
 
 Upload a bill image and click on  **"Parse Bill Image"** .
 
@@ -92,6 +92,11 @@ Upload a bill image and click on  **"Parse Bill Image"** .
 ### Extracted Output:
 
 ![1745058759879](image/README/1745058759879.png)
+
+
+### 📹 Demo Video
+
+* [ ] 👉 [Click here to watch the demo](image\README\Demo Document Parser.mkv)
 
 # 👨‍💻About Me
 
