@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Parser Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Bill Parser: Dashboard</h1>
+
+    {% if not result %}
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Parse Bill Image</button>
+    </form>
+    {% else %}
+    <form action="/" method="get">
+        <button type="submit">Extract New Bill</button>
+    </form>
+    <div class="container">
+        <div class="image-preview">
+            <h2>Input Image:</h2>
+            <img src="{{ image_url }}" alt="Uploaded Bill Image">
+        </div>
+
+        <div class="json-output">
+            <h2>Extracted Structured Bill:</h2>
+            <pre>{{ result | tojson(indent=2) }}</pre>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

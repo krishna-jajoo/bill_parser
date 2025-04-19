@@ -1,0 +1,9 @@
+langchain-openai  
+langchain-community  
+langchain-core 
+Pillow
+fastapi
+uvicorn
+python-multipart
+jinja2>=3.0
+python-dotenv
