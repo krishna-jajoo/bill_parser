@@ -93,11 +93,11 @@ Upload a bill image and click on  **"Parse Bill Image"** .
 
 ![1745058759879](image/README/1745058759879.png)
 
+### 📹 Demo Video
 
-### 📹 Demo Video![1745065966187](Demo Video)
+[DEMO VIDEO LINK](image\README\Demo Document Parser.mp4)
 
-
-👨‍💻About Me
+## 👨‍💻About Me
 
 ```markdown
 Hi, I'm Krishna Jajoo, a Data Scientist passionate about **AI-driven information extraction** and **knowledge automation**.  
